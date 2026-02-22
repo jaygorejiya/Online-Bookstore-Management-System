@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cart</title>
+</head>
+<body>
+
+<h2>Your Cart</h2>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+    </tr>
+
+    <tr th:each="book : ${cart}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.price}"></td>
+    </tr>
+</table>
+<form action="/order/place" method="post">
+    <button type="submit">Place Order</button>
+</form>
+<a href="/cart/clear">Clear Cart</a><br>
+<a href="/books">Continue Shopping</a>
+
+</body>
+</html>
